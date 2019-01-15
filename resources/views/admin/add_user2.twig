@@ -1,0 +1,277 @@
+{% extends 'templates/admin.twig' %}
+
+{% block content %} 
+
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+  							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->	        
+<div class="m-content">
+<div class="row">
+	<div class="col-lg-12">
+		<!--begin::Portlet-->
+		<div class="m-portlet">
+			<!-- <div class="m-portlet__head">
+				<div class="m-portlet__head-caption">
+					<div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon m--hide">
+						<i class="la la-gear"></i>
+						</span>
+						<h3 class="m-portlet__head-text">
+							Horizontal Form Sections
+						</h3>
+					</div>
+				</div>
+			</div> -->
+			<!--begin::Form-->
+			<form class="m-form m-form--label-align-right" method="post" action="{{ path_for('admin.postAddUser') }}">
+				<div class="m-portlet__body">	
+					<div class="m-form__section m-form__section--first">		
+						<div class="m-form__heading">
+							<h3 class="m-form__heading-title">Personal Info:</h3>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">First Name *</label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" placeholder="Enter User's first name" name="first_name" id="first_name">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Middle Name</label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" placeholder="Enter User's middle name" name="middle_name" id="middle_name">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Sur Name *</label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" placeholder="Enter User's last name" name="last_name" id="last_name">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Phone Number *</label>
+							<div class="col-lg-6">
+								<input type="tel" class="form-control m-input" placeholder="Enter User's Phone Number" name="phone_number" id="phone_number">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Email address *</label>
+							<div class="col-lg-6">
+								<input type="email" class="form-control m-input" placeholder="Enter User's Email Address" name="email_address" id="email_address">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Date of Birth *</label>
+							<div class="col-lg-6">
+								<input type="date" class="form-control" id="m_datepicker_1" placeholder="Select date of birth" name="dob">
+							</div>
+						</div>	
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Gender *</label>
+							<div class="col-lg-6">
+								<select class="form-control m-input" name="gender">
+									<option value="">Select Gender</option>
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</div>
+						</div>							
+						<div class="m-form__group form-group row">
+							<label class="col-lg-2 col-form-label">User Type *</label>
+							<div class="col-lg-6">
+								<div class="m-radio-list">
+									<label class="m-radio">
+			                           	<input type="radio" name="user_type" id="customer" value="customer" onclick="userTypeCheckboxCustomer()"> Customer
+			                            <span></span>
+			                        </label>
+			                        <label class="m-radio">
+			                           	<input type="radio" name="user_type" id="agent" value="agent" onclick="userTypeCheckbox-agent()"> Agent
+			                            <span></span>
+			                        </label>
+			                        <label class="m-radio">
+			                           	<input type="radio" name="user_type" id="admin" value="admin" onclick="userTypeCheckbox-admin()"> Administrator
+			                            <span></span>
+			                        </label>
+			                    </div>
+		                    </div>
+		                </div>
+		            </div>		            	            				
+
+					<div id="customer-info">
+						<div class="m-form__seperator m-form__seperator--dashed"></div>	
+						<div class="m-form__section m-form__section--last">						
+							<div class="m-form__heading">
+								<h3 class="m-form__heading-title">Customer Info:</h3>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Profile Picture </label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control m-input" placeholder="Enter User's Profile Picture" name="profile_picture" id="profile_picture">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Address </label>
+								<div class="col-lg-6">
+									<textarea class="form-control m-input" placeholder="Enter User's Address" name="address" id="address"></textarea>
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">City *</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control m-input" placeholder="Enter User's Home City" name="city" id="city">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Country *</label>
+								<div class="col-lg-6">
+									<select class="form-control m-input" name="country">
+										<option value="">Select User's Home Country</option>
+										{% for country in countries %}
+											<option value="{{ country.iso }}">{{ country.nicename }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Company</label>
+								<div class="col-lg-6">
+									<select class="form-control m-input" name="country">
+										<option value="">Select User's Company</option>
+										{% for company in companies %}
+											<option value="{{ company.id }}">{{ company.name }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>	
+						</div>						
+					</div>						            				
+
+					<div id="agent-info">
+						<div class="m-form__seperator m-form__seperator--dashed"></div>	
+						<div class="m-form__section m-form__section--last">						
+							<div class="m-form__heading">
+								<h3 class="m-form__heading-title">Agent Info:</h3>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Profile Picture </label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control m-input" placeholder="Enter User's Profile Picture" name="profile_picture" id="profile_picture">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Address </label>
+								<div class="col-lg-6">
+									<textarea class="form-control m-input" placeholder="Enter User's Address" name="address" id="address"></textarea>
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">City *</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control m-input" placeholder="Enter User's Home City" name="city" id="city">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Country *</label>
+								<div class="col-lg-6">
+									<select class="form-control m-input" name="country">
+										<option value="">Select User's Home Country</option>
+										{% for country in countries %}
+											<option value="{{ country.iso }}">{{ country.nicename }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Company</label>
+								<div class="col-lg-6">
+									<select class="form-control m-input" name="country">
+										<option value="">Select User's Company</option>
+										{% for company in companies %}
+											<option value="{{ company.id }}">{{ company.name }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+						</div>					
+					</div>
+
+					<div id="admin-info">
+						<div class="m-form__seperator m-form__seperator--dashed"></div>	
+						<div class="m-form__section m-form__section--last">						
+							<div class="m-form__heading">
+								<h3 class="m-form__heading-title">Admin Info:</h3>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Profile Picture </label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control m-input" placeholder="Enter User's Profile Picture" name="profile_picture" id="profile_picture">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Role </label>
+								<div class="col-lg-6">
+									<input class="form-control m-input" placeholder="Enter User's Role" name="role" id="role">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Address </label>
+								<div class="col-lg-6">
+									<textarea class="form-control m-input" placeholder="Enter User's Address" name="address" id="address"></textarea>
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">City *</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control m-input" placeholder="Enter User's Home City" name="city" id="city">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Country *</label>
+								<div class="col-lg-6">
+									<select class="form-control m-input" name="country">
+										<option value="">Select User's Home Country</option>
+										{% for country in countries %}
+											<option value="{{ country.iso }}">{{ country.nicename }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>	
+						</div>					
+					</div>
+	            </div>
+	            <div class="m-portlet__foot m-portlet__foot--fit">
+					<div class="m-form__actions m-form__actions">
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-6">
+								<button type="reset" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-secondary">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!--end::Form-->
+		</div>
+		<!--end::Portlet-->
+	</div>
+</div>		        </div>
+			    		    </div>
+
+				
+		</div>
+				<!-- end:: Body -->
+{% endblock %}

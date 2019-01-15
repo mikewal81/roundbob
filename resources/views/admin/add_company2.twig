@@ -1,0 +1,168 @@
+{% extends 'templates/admin.twig' %}
+
+{% block content %} 
+
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+  							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->	        
+<div class="m-content">
+<div class="row">
+	<div class="col-lg-12">
+		<!--begin::Portlet-->
+		<div class="m-portlet">
+			<!-- <div class="m-portlet__head">
+				<div class="m-portlet__head-caption">
+					<div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon m--hide">
+						<i class="la la-gear"></i>
+						</span>
+						<h3 class="m-portlet__head-text">
+							Horizontal Form Sections
+						</h3>
+					</div>
+				</div>
+			</div> -->
+			<!--begin::Form-->
+			<form class="m-form m-form--label-align-right" method="post" action="{{ path_for('admin.postAddCompany') }}">
+				<div class="m-portlet__body">	
+					<div class="m-form__section m-form__section--first">		
+						<div class="m-form__heading">
+							<h3 class="m-form__heading-title">Company Info:</h3>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Name *</label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" placeholder="Enter Companies's name" name="name" id="name">
+							</div>
+						</div>
+                        <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">Description </label>
+                            <div class="col-lg-6">
+                                <textarea class="form-control m-input" placeholder="Enter Company Description" name="description" id="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Phone Number *</label>
+							<div class="col-lg-6">
+								<input type="tel" class="form-control m-input" placeholder="Enter Companies's Phone Number" name="phone_number" id="phone_number">
+							</div>
+						</div>
+                        <div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Email address *</label>
+							<div class="col-lg-6">
+								<input type="email" class="form-control m-input" placeholder="Enter Companies's Email Address" name="email" id="email">
+							</div>
+						</div>
+                        <div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Website </label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" placeholder="Enter Company's Website address" name="website" id="website">
+							</div>
+						</div>
+                        <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">Address </label>
+                            <div class="col-lg-6">
+                                <textarea class="form-control m-input" placeholder="Enter Company's Address" name="address" id="address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Logo </label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" placeholder="Upload Company's Logo" name="logo" id="logo">
+							</div>
+						</div>
+                        <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">City *</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control m-input" placeholder="Enter Company's Home City" name="city" id="city">
+                            </div>
+                        </div>                        
+                        <div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">Country *</label>
+                            <div class="col-lg-6">
+                                <select class="form-control m-input" name="country">
+                                    <option value="">Select Company's Home Country</option>
+                                    {% for country in countries %}
+                                        <option value="{{ country.iso }}">{{ country.nicename }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+		            <div class="m-form__seperator m-form__seperator--dashed"></div>		
+
+	            </div>
+	            <div class="m-portlet__foot m-portlet__foot--fit">
+					<div class="m-form__actions m-form__actions">
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-6">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-secondary">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!--end::Form-->
+		</div>
+		<!--end::Portlet-->
+	</div>
+</div>		        </div>
+			    		    </div>
+
+				
+		</div>
+				<!-- end:: Body -->
+<script src="{{ base_url }}/admin/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	function userTypeCheckbox2(){
+		var customer_checkBox = document.getElementById("customer");
+		var agent_checkBox = document.getElementById("agent");
+		var admin_checkBox = document.getElementById("admin");
+		var customer_info = document.getElementById("customer-info");
+		var agent_info = document.getElementById("agent-info");
+		var admin_info = document.getElementById("admin-info");
+		if(customer_checkBox.checked == true){
+			customer-info.style.display = "block";
+		} elseif(agent_checkBox.checked == true){
+			agent-info.style.display = "block";
+		} elseif(admin_checkBox.checked == true){
+			admin-info.style.display = "block";
+		} else {
+			customer_info.style.display = "none";
+			agent_info.style.display = "none";
+			admin_info.style.display = "none";
+		}
+	}
+	function userTypeCheckbox(){
+		$(#customer-info).hide();
+		$(#agent-info).hide();
+		$(#admin-info).hide();
+		$(#customer).select(function(){
+			$(#customer-info).show();
+		});
+		$(#agent).select(function(){
+			$(#agent-info).show();
+		});
+		$(#admin).select(function(){
+			$(#admin-info).show();
+		});
+	}
+</script> 
+
+{% endblock %}

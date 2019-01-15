@@ -1,0 +1,105 @@
+{% extends 'templates/admin.twig' %}
+
+{% block content %}
+
+{{ rs }}
+
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+  							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+<!-- END: Subheader -->
+
+	        <div class="m-content">
+		            <div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
+	
+	
+</div>
+<div class="m-portlet m-portlet--mobile">
+	<div class="m-portlet__head">
+		<div class="m-portlet__head-caption">
+			<div class="m-portlet__head-title">
+				<h3 class="m-portlet__head-text">
+					
+				</h3>
+			</div>
+		</div>
+		<div class="m-portlet__head-tools">
+			<ul class="m-portlet__nav">
+				<li class="m-portlet__nav-item">
+					<a href="{{ path_for('admin.addPackageCategory') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air">
+						<span>
+							<!-- <i class="la la-plus"></i> -->
+							<span>Add a Package Category</span>
+						</span>
+					</a>
+				</li>
+				<li class="m-portlet__nav-item"></li>
+			</ul>
+		</div>
+	</div>
+
+    {% if rs.success == false %}
+        <!--<div class="alert alert-{{ url.alert }}" role="alert">
+            <strong>{{ url.message }}</strong> .
+        </div> --> 
+        {{ rs }}  
+    {% endif %}
+	<div class="m-portlet__body">
+		<!--begin: Datatable -->
+		<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Created By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+			
+            <tbody>
+                {% if package_cats == null %}
+                    <tr><td></td><td>No Records Found<td></tr>
+                {% else %}
+                    {% for package_cat in package_cats %}
+                        {% set counter = ( counter | default(0)) + 1 %}
+                        <tr>
+                            <td>{{ counter }}</td>
+                            <td>{{ package_cat.name }}</td>
+                            <td>{{ package_cat.description }}</td>
+                            <td>{{ package_cat.first_name }} {{ package_cat.middle_name }} {{ package_cat.last_name }}</td>
+                            <td nowrap="">
+                                <a href="{{ path_for('admin.viewPackageCategory', {'id': package_cat.id}) }}" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View">
+                                <i class="la la-eye"></i>
+                                <a href="{{ path_for('admin.deletePackageCategory', {'id': package_cat.id}) }}" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+                                <i class="la la-trash"></i>
+                        </a></td>
+                        </tr> 
+                    {% endfor %}                
+                {% endif %}                           
+            </tbody>
+			
+					</table>
+	</div>
+</div>
+<!-- END EXAMPLE TABLE PORTLET-->		        </div>
+			    		    </div>
+
+				
+		</div>
+				<!-- end:: Body -->    		       
+
+{% endblock %}

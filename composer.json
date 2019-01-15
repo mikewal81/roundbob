@@ -1,0 +1,40 @@
+{
+    "name": "Roundbob Travel Software",
+    "description": "Software that allows everyday Africans to save for Travel using cashless payment methods",
+    "keywords": ["travel","african travel","saving for travel","flights","hotels","travel activities","travel packages","affordable travel"],
+    "homepage": "https://github.com/orgs/RoundBob-Dev",
+    "license": "",
+    "authors": [
+        {
+            "name": "Rwakimari Arnold Babasa",
+            "email": "realnsleo@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Eric Sentongo",
+            "email": "Eric_Sentongo@yahoo.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Walusimbi Michael Ndugga",
+            "email": "walusimbimichael@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.11",
+        "slim/twig-view": "^2.4",
+        "illuminate/database": "^5.7",
+        "symfony/var-dumper": "^4.1",
+        "monolog/monolog": "^1.23",
+        "tuupola/slim-jwt-auth": "^3.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Auth\\": "auth",
+            "Agents\\": "agents"
+        }        
+    }
+}

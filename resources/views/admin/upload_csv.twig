@@ -1,0 +1,72 @@
+{% extends 'templates/admin.twig' %}
+
+{% block content %}
+		    			    
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+  							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->	        
+	        
+<div class="m-content">
+		            <div class="row">
+	
+	<div class="col-md-12">
+		<!--begin::Portlet-->
+		<div class="m-portlet m-portlet--tab">
+			<div class="m-portlet__head">
+				<div class="m-portlet__head-caption">
+					<div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon m--hide">
+						<i class="la la-gear"></i>
+						</span>
+						<h3 class="m-portlet__head-text">
+						</h3>
+					</div>
+				</div>
+			</div>
+			<!--begin::Form-->
+			<form method="post" action="http://localhost:8080/api/uploadCSV" enctype="multipart/form-data">
+				<div class="m-portlet__body">
+					<div class="form-group m-form__group">
+						<label for="exampleInputEmail1">CSV Upload</label>
+						<div></div>
+						<div class="custom-file">
+						  	<input type="file" class="custom-file-input" id="customFile" name="csv-upload">
+						  	<label class="custom-file-label" for="customFile">Choose file</label>
+						</div>
+					</div>												
+				</div>
+				<div class="m-portlet__foot m-portlet__foot--fit">
+					<div class="m-form__actions">
+						<button type="reset" class="btn btn-primary">Submit</button>
+						<button type="reset" class="btn btn-secondary">Cancel</button>
+					</div>
+				</div>
+			</form>
+			<!--end::Form-->			
+		</div>
+		<!--end::Portlet-->
+
+		
+	</div>
+</div>		        </div>
+			    		    </div>
+
+				
+		
+				<!-- end:: Body -->
+
+{% endblock %}

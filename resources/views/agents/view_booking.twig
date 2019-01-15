@@ -1,0 +1,120 @@
+{% extends 'templates/agents.twig' %}
+
+{% block content %} 
+
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+  							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->	        
+<div class="m-content">
+<div class="row">
+	<div class="col-lg-12">
+		<!--begin::Portlet-->
+		<div class="m-portlet">
+			<!-- <div class="m-portlet__head">
+				<div class="m-portlet__head-caption">
+					<div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon m--hide">
+						<i class="la la-gear"></i>
+						</span>
+						<h3 class="m-portlet__head-text">
+							Horizontal Form Sections
+						</h3>
+					</div>
+				</div>
+			</div> -->
+			<!--begin::Form-->
+			<form class="m-form m-form--label-align-right" method="post" action="{{ path_for('agent.editBooking', {'id': booking.id}) }}">
+				<div class="m-portlet__body">	
+					<div class="m-form__section m-form__section--first">		
+						<div class="m-form__heading">
+							<h3 class="m-form__heading-title">Booking Info:</h3>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Booking Date </label>
+							<div class="col-lg-6">
+								<input type="date" class="form-control"  value="{{ booking.date }}" name="date">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Booking Status </label>
+							<div class="col-lg-6">
+								{% if booking.booking_date > "now"|date("Y-m-d") %}
+									<input type="text" class="form-control" value="Expired">
+								{% else %}
+									<input type="text" class="form-control" value="Active">
+								{% endif %}
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">Type </label>
+                            <div class="col-lg-6">
+                                <select class="form-control m-input" name="category">
+                                    <option value="{{booking.typeId}}">{{ booking.typeName }}</option>
+                                    {% for type in types %}
+                                        <option value="{{ type.id }}">{{ type.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Customer</label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control" id="customer" value="{{ booking.customerFirstName }} {{ booking.customerMiddleName }} {{ booking.customerLastName }}" name="customer">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Agent Id</label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control" id="agentId" value="{{ booking.agentId }} " name="agentId">
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Custom Request</label>
+							<div class="col-lg-6">
+								{% if booking. custom_request_id is empty %}
+									<input type="text" class="form-control" id="customId" value="No Custom Request" name="customId">
+								{% else %}
+									<input type="text" class="form-control" id="customId" value="{{ booking.custom_request_id }} " name="customId">
+								{% endif %}								
+							</div>
+						</div>
+		            </div>
+	            </div>
+	            <div class="m-portlet__foot m-portlet__foot--fit">
+					<div class="m-form__actions m-form__actions">
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-6">
+								<button type="submit" class="btn btn-primary">Edit</button>
+								<button type="reset" class="btn btn-secondary">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!--end::Form-->
+		</div>
+		<!--end::Portlet-->
+	</div>
+</div>		        </div>
+			    		    </div>
+
+				
+		</div>
+				<!-- end:: Body -->
+
+{% endblock %}

@@ -1,0 +1,2 @@
+/** Set Custom Div's to be hidden */
+#customer-info, #agent-info, #admin-info { visibility: hidden; }

@@ -1,0 +1,189 @@
+<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="0" m-menu-dropdown-timeout="500">
+    <ul class="m-menu__nav ">
+        <li class="m-menu__section m-menu__section--first">
+            <h4 class="m-menu__section-text">Customer / Agent management</h4>
+            <i class="m-menu__section-icon flaticon-more-v2"></i>
+        </li>
+        <li class="m-menu__item  {% if nav == 'home' %}m-menu__item--active{% endif %}" aria-haspopup="true">
+            <a href="{{ path_for('admin.dash') }}" class="m-menu__link ">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-home"></i>
+                <span class="m-menu__link-text">Dashboard</span>
+            </a>
+        </li>    
+        <li class="m-menu__item  m-menu__item--submenu {% if nav == 'users' %}m-menu__item--active{% endif %}" aria-haspopup="true" m-menu-submenu-toggle="hover">
+            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-users"></i>
+                <span class="m-menu__link-text">Users</span><i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="m-menu__submenu ">
+                <span class="m-menu__arrow"></span>
+                <ul class="m-menu__subnav">
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.users') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">View All</span>
+                        </a>
+                    </li>  
+                     <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.customers') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Customers</span>
+                        </a>
+                    </li>  
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.agents') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Agents</span>
+                        </a>
+                    </li> 
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.admin') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Admin</span>
+                        </a>
+                    </li>                      
+                    <!-- <li class="m-menu__item " aria-haspopup="true">
+                        <a href="" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Deleted</span>
+                        </a>
+                    </li>  -->                
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.addUser') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Add a User</span>
+                        </a>
+                    </li>
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.uploadCSV') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Upload CSV file</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="m-menu__item  m-menu__item--submenu {% if nav == 'companies' %}m-menu__item--active{% endif %}" aria-haspopup="true" m-menu-submenu-toggle="hover">
+            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-presentation-1"></i>
+                <span class="m-menu__link-text">Companies</span><i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="m-menu__submenu ">
+                <span class="m-menu__arrow"></span>
+                <ul class="m-menu__subnav">
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.companies') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">View All</span>
+                        </a>
+                    </li>                    
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.addCompany') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Add a Company</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>   
+        <li class="m-menu__item  m-menu__item--submenu {% if nav == 'packages' %}m-menu__item--active{% endif %}" aria-haspopup="true" m-menu-submenu-toggle="hover">
+            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-box"></i>
+                <span class="m-menu__link-text">Packages</span><i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="m-menu__submenu ">
+                <span class="m-menu__arrow"></span>
+                <ul class="m-menu__subnav">
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.packages') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">All Packages</span>
+                        </a>
+                    </li>
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.packageCategories') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Package Categories</span>
+                        </a>
+                    </li>
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.addPackageCategory') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Add a Package Category</span>
+                        </a>
+                    </li>  
+                </ul>
+            </div>
+        </li>
+        <li class="m-menu__item  m-menu__item--submenu {% if nav == 'bookings' %}m-menu__item--active{% endif %}" aria-haspopup="true" m-menu-submenu-toggle="hover">
+            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-calendar-with-a-clock-time-tools"></i>
+                <span class="m-menu__link-text">Bookings</span><i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="m-menu__submenu ">
+                <span class="m-menu__arrow"></span>
+                <ul class="m-menu__subnav">
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.upcomingBookings') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Upcoming</span>
+                        </a>
+                    </li>                    
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.completedBookings') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Completed</span>
+                        </a>
+                    </li>
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.bookingTypes') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Booking types</span>
+                        </a>
+                    </li> 
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.addBookingType') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Add a Booking type</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="m-menu__item  m-menu__item--submenu {% if nav == 'wallets' %}m-menu__item--active{% endif %}" aria-haspopup="true" m-menu-submenu-toggle="hover">
+            <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-price-tag"></i>
+                <span class="m-menu__link-text">Wallets</span><i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="m-menu__submenu ">
+                <span class="m-menu__arrow"></span>
+                <ul class="m-menu__subnav">
+                    <li class="m-menu__item " aria-haspopup="true">
+                        <a href="{{ path_for('admin.wallets') }}" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">All Wallets</span>
+                        </a>
+                    </li>                    
+                    <!-- <li class="m-menu__item " aria-haspopup="true">
+                        <a href="" class="m-menu__link ">
+                            <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                            <span class="m-menu__link-text">Add a Company</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </li>       
+        <li class="m-menu__item  {% if nav == 'profile' %}m-menu__item--active{% endif %}" aria-haspopup="true">
+            <a href="{{ path_for('admin.profile', {'id': user.userId}) }}" class="m-menu__link ">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-profile"></i>
+                <span class="m-menu__link-text">My Profile</span>
+            </a>
+        </li> 
+        <li class="m-menu__item" aria-haspopup="true">
+            <a href="{{ path_for('admin.logout') }}" class="m-menu__link ">
+                <span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-reply"></i>
+                <span class="m-menu__link-text">Logout</span>
+            </a>
+        </li>                   
+    </ul>
+</div>

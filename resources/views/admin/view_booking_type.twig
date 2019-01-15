@@ -1,0 +1,95 @@
+{% extends 'templates/admin.twig' %}
+
+{% block content %} 
+
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+  							<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->	        
+<div class="m-content">
+<div class="row">
+	<div class="col-lg-12">
+		<!--begin::Portlet-->
+		<div class="m-portlet">
+			<!-- <div class="m-portlet__head">
+				<div class="m-portlet__head-caption">
+					<div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon m--hide">
+						<i class="la la-gear"></i>
+						</span>
+						<h3 class="m-portlet__head-text">
+							Horizontal Form Sections
+						</h3>
+					</div>
+				</div>
+			</div> -->
+			<!--begin::Form-->
+			<form class="m-form m-form--label-align-right" method="post" action="{{ path_for('admin.editBookingType', {'id': type.id}) }}">
+				<div class="m-portlet__body">	
+					<div class="m-form__section m-form__section--first">		
+						<div class="m-form__heading">
+							<h3 class="m-form__heading-title">Booking Type Info:</h3>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Name </label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" value="{{ type.name }}" name="name" id="name">
+							</div>
+						</div>
+                        <div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Description</label>
+							<div class="col-lg-6">
+								<textarea class="form-control m-input" name="description" id="description">{{ type.description }}</textarea>
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Created By </label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" value="{{ type.userFirstName }} {{ type.userMiddleName }} {{ type.userLastName }}" >
+							</div>
+						</div>
+						<div class="form-group m-form__group row">
+							<label class="col-lg-2 col-form-label">Created On </label>
+							<div class="col-lg-6">
+								<input type="text" class="form-control m-input" value="{{ type.created_on|date("d-m-Y") }}" >
+							</div>
+						</div>
+		            </div>
+	            </div>
+	            <div class="m-portlet__foot m-portlet__foot--fit">
+					<div class="m-form__actions m-form__actions">
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-6">
+								<button type="submit" class="btn btn-primary">Edit</button>
+								<button type="reset" class="btn btn-secondary">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!--end::Form-->
+		</div>
+		<!--end::Portlet-->
+	</div>
+</div>		        </div>
+			    		    </div>
+
+				
+		</div>
+				<!-- end:: Body -->
+
+{% endblock %}

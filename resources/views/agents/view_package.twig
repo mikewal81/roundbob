@@ -1,0 +1,297 @@
+{% extends 'templates/agents.twig' %}
+
+{% block content %}
+			    			    
+<!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">{{ title }}</h3>
+            </div>
+            <div>
+				<span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+					<span class="m-subheader__daterange-label">
+						<span class="m-subheader__daterange-title"></span>
+						<span class="m-subheader__daterange-date m--font-brand"></span>
+					</span>
+				</span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->	        
+<div class="m-content">
+		            <div class="row">
+	<div class="col-xl-3 col-lg-4">
+		<div class="m-portlet m-portlet--full-height  ">
+			<div class="m-portlet__body">
+				<div class="m-card-profile">
+					<div class="m-card-profile__title m--hide">
+						Package Details
+					</div>
+					<div class="m-card-profile__pic">
+						<div class="m-card-profile__pic-wrapper">	
+							<img src="{{ base_url }}/{{ package.display_image }}" alt=""/>
+						</div>
+					</div>
+					<div class="m-card-profile__details">
+						<span class="m-card-profile__name">{{ package.name }}</span>
+					</div>
+				</div>
+
+				<div class="m-portlet__body-separator"></div>
+
+				<div class="m-widget1 m-widget1--paddingless">
+					<div class="m-widget1__item">
+						<div class="row m-row--no-padding align-items-center">
+							<div class="col">
+								<h3 class="m-widget1__title">Agent Name : </h3>
+								<!-- <span class="m-widget1__desc">Awerage Weekly Profit</span> -->
+							</div>
+							<div class="col m--align-right">
+								<span class="m-widget1__number m--font-brand">{{ package.first_name }} {{ package.middle_name }} {{ package.last_name }}</span>
+							</div>
+						</div>
+					</div>
+					<div class="m-widget1__item">
+						<div class="row m-row--no-padding align-items-center">
+							<div class="col">
+								<h3 class="m-widget1__title">Agent Id</h3>
+								<!-- <span class="m-widget1__desc">Weekly Customer Orders</span> -->
+							</div>
+							<div class="col m--align-right">
+								<span class="m-widget1__number m--font-danger">{{ package.agent_id }}</span>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="m-widget1__item">
+						<div class="row m-row--no-padding align-items-center">
+							<div class="col">
+								<h3 class="m-widget1__title">Issue Reports</h3>
+								<span class="m-widget1__desc">System bugs and issues</span>
+							</div>
+							<div class="col m--align-right">
+								<span class="m-widget1__number m--font-success">-27,49%</span>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>			
+		</div>	
+	</div>
+	<div class="col-xl-9 col-lg-8">
+		<div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
+			<div class="m-portlet__head">
+				<div class="m-portlet__head-tools">
+					<ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
+						<li class="nav-item m-tabs__item">
+							<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab">
+								<i class="flaticon-share m--hide"></i>
+								Package Details
+							</a>
+						</li>
+						<!-- <li class="nav-item m-tabs__item">
+							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab">
+								Messages
+							</a>
+						</li>
+						<li class="nav-item m-tabs__item">
+							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab">
+								Settings
+							</a>
+						</li> -->
+					</ul>
+				</div>
+				<div class="m-portlet__head-tools">
+					<ul class="m-portlet__nav">
+						<li class="m-portlet__nav-item m-portlet__nav-item--last">
+							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+	<!--<a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+		<i class="la la-gear"></i>
+	</a> -->
+	<!-- <div class="m-dropdown__wrapper">
+		<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+		<div class="m-dropdown__inner">
+			<div class="m-dropdown__body">
+				<div class="m-dropdown__content">
+					<ul class="m-nav">
+						<li class="m-nav__section m-nav__section--first">
+							<span class="m-nav__section-text">Quick Actions</span>
+						</li>
+						<li class="m-nav__item">
+							<a href="" class="m-nav__link">
+							<i class="m-nav__link-icon flaticon-share"></i>
+							<span class="m-nav__link-text">Create Post</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="" class="m-nav__link">
+							<i class="m-nav__link-icon flaticon-chat-1"></i>
+							<span class="m-nav__link-text">Send Messages</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="" class="m-nav__link">
+							<i class="m-nav__link-icon flaticon-multimedia-2"></i>
+							<span class="m-nav__link-text">Upload File</span>
+							</a>
+						</li>
+						<li class="m-nav__section">
+							<span class="m-nav__section-text">Useful Links</span>
+						</li>
+						<li class="m-nav__item">
+							<a href="" class="m-nav__link">
+							<i class="m-nav__link-icon flaticon-info"></i>
+							<span class="m-nav__link-text">FAQ</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="" class="m-nav__link">
+							<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+							<span class="m-nav__link-text">Support</span>
+							</a>
+						</li>
+						<li class="m-nav__separator m-nav__separator--fit m--hide">
+						</li>
+						<li class="m-nav__item m--hide">
+							<a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Submit</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div> -->
+</div>						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="tab-content">
+				<div class="tab-pane active" id="m_user_profile_tab_1">
+					<form class="m-form m-form--fit m-form--label-align-right" method="post" action="{{ path_for('agent.editPackage', {'id': package.id}) }}">
+						<div class="m-portlet__body">
+							<div class="form-group m-form__group m--margin-top-10 m--hide">
+								<!-- <div class="alert m-alert m-alert--default" role="alert">
+									The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+								</div> -->
+							</div>
+
+							<div class="form-group m-form__group row">
+								<div class="col-10 ml-auto">
+									<h3 class="m-form__section"></h3>
+								</div>
+							</div>
+
+							<div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">Name</label>
+								<div class="col-7">
+									<input class="form-control m-input" type="text" value="{{ package.name }}" id="name" name="name">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Category </label>
+								<div class="col-lg-7">
+									<select class="form-control m-input" name="category" id="category">
+										<option value="{{ package.categoryId }}">{{ package.categoryName }}</option>
+										{% for category in categories %}
+											<option value="{{ category.id }}">{{ category.name }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+                            <div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">Owner</label>
+								<div class="col-7">
+									<input class="form-control m-input" type="text" value="{{ package.first_name }} {{ package.middle_name }} {{ package.last_name }}">
+								</div>
+							</div>
+							
+                            <div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">Description</label>
+								<div class="col-7">
+									<textarea class="form-control m-input" type="text" id="description" name="description">{{ package.description }}</textarea>
+								</div>
+							</div>
+                            <div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">Valid From</label>
+								<div class="col-7">
+									<input type="date" class="form-control" id="validity_from" value="{{ package.valid_from }}" name="valid_from">
+								</div>
+							</div>
+                            <div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">Valid To</label>
+								<div class="col-7">
+									<input type="date" class="form-control" id="validity_to" value="{{ package.valid_to }}" name="valid_to">
+								</div>
+							</div>
+                            <div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">Price ($)</label>
+								<div class="col-7">
+									<input class="form-control m-input" type="text" value="{{ package.price }}" id="price" name="price">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+                            <label class="col-lg-2 col-form-label">Display Image </label>
+                            <div class="col-lg-6">
+                                <input type="file" name="display_image" id="display_image">
+                            </div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Other Images </label>
+								<div class="col-lg-6">
+									<input type="file" name="images" id="images">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label for="example-text-input" class="col-2 col-form-label">City</label>
+								<div class="col-7">
+									<input class="form-control m-input" type="text" value="{{ package.location_city }}" id="city" name="city">
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<label class="col-lg-2 col-form-label">Country </label>
+								<div class="col-lg-7">
+									<select class="form-control m-input" name="country" id="country">
+										<option value="{{ package.iso }}">{{ package.country }}</option>
+										{% for country in countries %}
+											<option value="{{ country.iso }}">{{ country.name }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>					
+
+						</div>
+						<div class="m-portlet__foot m-portlet__foot--fit">
+							<div class="m-form__actions">
+								<div class="row">
+									<div class="col-2">
+									</div>
+									<div class="col-7">
+										<button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">Save changes</button>&nbsp;&nbsp;
+										<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- <div class="tab-pane " id="m_user_profile_tab_2">
+					
+				</div>
+				<div class="tab-pane " id="m_user_profile_tab_3">
+					
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>		        </div>
+			    		    </div>
+
+				
+		</div>
+				<!-- end:: Body -->
+
+
+
+    		        
+
+
+{% endblock %}
